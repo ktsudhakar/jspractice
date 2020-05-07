@@ -1,16 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon"  type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
     <title>Javascript Practise</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+
 <body>
-    <h1 class="text-center">Javascript</h1>
+    <div class="container-fluid">
+        <h1 class="text-center">Javascript</h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="alphabetical-javaScript-reference.html">Alphabetical JavaScript
+                            Reference</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <p>* Numbers are not allowed as the first character.</p>
+        <p>* JavaScript variables are containers for storing data values.</p>
+        <p>* All JavaScript variables must be identified with unique names. These unique names are called identifiers.
+        </p>
+        <p>* If you put a number in quotes, the rest of the numbers will be treated as strings, and concatenated.</p>
+        <p>* Javascript variables does not start with number. Other than we can use (aBC, _abc, ABC, $abc, $100)/p>
+        <p>* When used on strings, the + operator is called the concatenation operator..</p>
+        <p>* = assign, == compares it isequal, === compare its equal both value and the type are same.</p>
+        <p>* The exponentiation operator (**) and Math.pow(x,y) are same.</p>
+        <h5>Difference Between Undefined and Null</h5>
+        <p>* undefined and null are equal in value but different in type:.</p>
+        <code>
+            typeof undefined    ->  undefined<br/>
+            typeof null         ->  object<br/>
+
+            null === undefined  ->  false<br/>
+            null == undefined   ->  true<br/><br/>
+        </code>
+        <h5>Primitive Data</h5>
+        <p>* A primitive data value is a single simple data value with no additional properties and methods. The
+            typeof operator can return one of these primitive types:.</p>
+        <ul>
+            <li>string</li>
+            <li>number</li>
+            <li> boolean</li>
+            <li> undefined</li>
+        </ul>
+        <h5>Complex Data</h5>
+        <p>* The typeof operator can return one of two complex types:.</p>
+        <ul>
+            <li>function</li>
+            <li>object</li>
+        </ul>
+        <p>* The typeof operator returns "object" for objects, arrays, and null.</p>
+        <p>* The typeof operator does not return "object" for functions.</p>
+        <code>
+            typeof {name:'John', age:34} // Returns "object" <br/>
+            typeof [1,2,3,4]             // Returns "object" (not "array", see note below) <br/>
+            typeof null                  // Returns "object" <br/>
+            typeof function myFunc(){}   // Returns "function" <br/><br/>
+        </code>
+        <p>* The typeof operator returns "object" for arrays because in JavaScript arrays are objects.</p>
+        <p>* Since local variables are only recognized inside their functions, variables with the same name can be
+            used in different functions.</p>
+        <p>* Local variables are created when a function starts, and deleted when the function is completed.</p>
+        <p>* JavaScript objects are containers for named values called properties or methods.</p>
+        <p>* var objectName = {propertyName1: propertyValue1, propertyName2: propertyValue2, propertyName3:
+            propertyValue3}
+            <br /> You can access like <code>objectName.propertName1 or objectName.['propertName1']</code></p>
+        <h5>Object Methods</h5>
+        <p>* Objects can also have methods.</p>
+        <p>* Methods are actions that can be performed on objects.</p>
+        <p>* Methods are stored in properties as function definitions.</p>
+        <p><img src="images/object-methods.jpg" /></p>
+        <p>* When using the === operator, equal strings are not equal, because the === operator expects equality in both type and value Or even worse. Objects cannot be compared:</p>
+        <p><img src="images/string-as-objects.jpg" /></p>
+        <h5>String Methods and Properties</h5>
+        <p>* Both indexOf(), and lastIndexOf() return -1 if the text is not found.</p>
+        <h5>Extracting String Parts</h5>
+        <p>* There are 3 methods for extracting a part of a string:</p>
+        <ul>
+            <li>slice(start, end) The method takes 2 parameters: the start position, and the end position (end not included).</li>
+            <li>substring(start, end) The difference is that substring() cannot accept negative indexes.</li>
+            <li>substr(start, length) The difference is that the second parameter specifies the length of the extracted part.</li>
+        </ul>
+        <h5>Converting a String to an Array</h5>
+        <p>*A string can be converted to an array with the split() method:</p>
+        <p>** JavaScript will try to convert strings to numbers in all numeric operations</p>
+        <h5>Converting Variables to Numbers</h5>
+        <p>There are 3 JavaScript methods that can be used to convert variables to numbers:</p>
+        <ul>
+            <li>The Number() method</li>
+            <li>The parseInt() method</li>
+            <li>The parseFloat() method</li>
+        </ul>
+        <p>* These methods are not number methods, but global JavaScript methods.</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
     <script src="main.js"></script>
 </body>
+
 </html>

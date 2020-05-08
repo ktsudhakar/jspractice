@@ -8,8 +8,15 @@ h1, h5 {
     text-shadow: 0 0 7px rgba(0,0,0,0.5);
 }
 
+h1 {
+    color: #ddc602;
+    margin: 1rem 0;
+}
+
 h5 {
+    color: #e3cb00;
     text-transform: uppercase;
+    text-shadow: 0 0 7px rgba(0,0,0,0.5);
 }
 
 .navbar {

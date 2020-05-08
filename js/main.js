@@ -93,12 +93,126 @@ document.getElementById("pop3").innerHTML = fruits4;
 
 //
 
-
 var fruits = ["Banana", "Orange", "Apple", "Mango"];
 
 document.getElementById("push1").innerHTML = fruits;
 document.getElementById("push2").innerHTML = fruits.push("Kiwi");
 document.getElementById("push3").innerHTML = fruits;
+
+//
+
+var cars = [
+  {type:"Colvo", year:2016},
+  {type:"Aaab", year:2001},
+  {type:"BMW", year:2010}
+];
+
+function myFunction() {
+  cars.sort(function(a, b){
+    var x = a.type.toLowerCase();
+    var y = b.type.toLowerCase();
+    if (x < y) {return -1;}
+    if (x > y) {return 1;}
+    return 0;
+  });
+  displayCars();
+}
+
+function displayCars() {
+  console.log (cars[0].type + " " + cars[0].year + "<br>" +
+  cars[1].type + " " + cars[1].year + "<br>" +
+  cars[2].type + " " + cars[2].year);
+}
+
+myFunction();
+
+var points = [40, 100, 1, 5, 25, 10];
+console.log(points);
+function test() {
+  points.sort(function(a, b){return a - b});
+}
+test();
+console.log(points);
+
+
+var points = [40, 100, 1, 5, 25, 10];
+console.log(myArrayMin(points));
+
+function myArrayMin(arr) {
+  var len = arr.length;
+  var min = Infinity;
+  while (len--) {
+    if (arr[len] < min) {
+      min = arr[len];
+    }
+  }
+  return min;
+}
+
+//
+
+var txt = "";
+var numbers = [45, 4, 9, 16, 25];
+numbers.forEach(myFunction);
+console.log(txt);
+
+function myFunction(value, index, array) {
+  txt = txt + value + "<br>"; 
+}
+
+//
+
+var numbers = [45, 4, 9, 16, 25];
+var over18 = numbers.filter(myFunction);
+
+console.log(over18);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+
+//
+
+var numbers = [45, 4, 9, 16, 25];
+var sum = numbers.reduce(myFunction1);
+console.log(sum);
+
+function myFunction1(total, value, index, array) {
+  console.log(total, value, index, array);
+  return total + value;
+}
+
+//
+
+var numbers1 = [45, 4, 9, 16, 25];
+var sum = numbers1.reduceRight(myFunction);
+
+function myFunction(total, value, index, array) {
+  return total + value;
+}
+
+//
+
+var date = new Date();
+console.log(date);
+console.log(date.getDate());
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+console.log(months[date.getMonth()]);
+
+//
+
+var today, someday, text;
+today = new Date();
+someday = new Date();
+someday.setFullYear(2100, 0, 14);
+
+if (someday > today) {
+  text = "Today is before January 14, 2100.";
+} else {
+  text = "Today is after January 14, 2100.";
+}
+console.log(text);
+
 
 function foo1()
 {

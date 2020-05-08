@@ -33,13 +33,18 @@
                 </ul>
             </div>
         </nav>
-        <h1 class="text-center">Javascript</h1>
-        <p>* Numbers are not allowed as the first character.</p>
+        <h1 class="text-center">Javascript - Notes</h1>
+        <h5>Javascript - Variables</h5>
         <p>* JavaScript variables are containers for storing data values.</p>
-        <p>* All JavaScript variables must be identified with unique names. These unique names are called identifiers.
-        </p>
+        <p>* Variable - Numbers are not allowed as the first character.</p>
+        <p>* Javascript variables does not start with number. Other than we can use (aBC, _abc, ABC, $abc, $100)</p>
+        <p>* All JavaScript variables must be identified with unique names. These unique names are called identifiers.</p>
+        <h5>JavaScript Data Types</h5>
+        <p><img class="img-fluid" src="images/javaScript-data-types.jpg" /></p>
+        <h5>The typeof Operator</h5>
+        <p><img class="img-fluid" src="images/typeof-operator.jpg" /></p>
+        <h5>String</h5>
         <p>* If you put a number in quotes, the rest of the numbers will be treated as strings, and concatenated.</p>
-        <p>* Javascript variables does not start with number. Other than we can use (aBC, _abc, ABC, $abc, $100)/p>
         <p>* When used on strings, the + operator is called the concatenation operator..</p>
         <p>* = assign, == compares it isequal, === compare its equal both value and the type are same.</p>
         <p>* The exponentiation operator (**) and Math.pow(x,y) are same.</p>
@@ -234,10 +239,152 @@
             // first parameter (0) is starting parameter,<br/>
             //second parameter (1) is to delete the number of records.<br/><br/>
         </code>
-        <p>* </p>
-        <p>* </p>
-        <p>* </p>
-        <p>* </p>
+        <h5>Merging (Concatenating) Arrays</h5>
+        <p>* The concat() method creates a new array by merging (concatenating) existing arrays.</p>
+        <code>
+            var myGirls = ["Cecilie", "Lone"];<br/>
+            var myBoys = ["Emil", "Tobias", "Linus"];<br/>
+            var myChildren = myGirls.concat(myBoys);   // Concatenates (joins) myGirls and myBoys<br/><br/>
+        </code>
+        <p>* The concat() method can take any number of array arguments</p>
+        <code>
+            var arr1 = ["Cecilie", "Lone"]; <br/>
+            var arr2 = ["Emil", "Tobias", "Linus"];<br/>
+            var arr3 = ["Robin", "Morgan"];<br/>
+            var myChildren = arr1.concat(arr2, arr3);   // Concatenates arr1 with arr2 and arr3<br/><br/>
+        </code>
+        <p>* The concat() method can also merge string values to arrays:</p>
+        <code>
+            var arr1 = ["Emil", "Tobias", "Linus"];<br/>
+            var myChildren = arr1.concat("Peter"); <br/>
+            Emil,Tobias,Linus,Peter<br/><br/>
+        </code>
+        <p>* The slice() method slices out a piece of an array into a new array.</p>
+        <p>-- This example slices out a part of an array starting from array element 3 ("Apple")</p>
+        <code>
+            var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];<br/>
+            var citrus = fruits.slice(3);<br/>
+            Apple,Mango<br/><br/>
+        </code>
+        <p>* When the slice() method is given two arguments, it selects array elements from the start argument, and up to (but not included) the end argument</p>
+        <code>
+            var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];<br/>
+            var citrus = fruits.slice(1,3);<br/>
+            Orange,Lemon<br/><br/>
+        </code>
+        <p>* If the end argument is omitted, like in the first examples, the slice() method slices out the rest of the array.</p>
+        <code>
+            var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];<br/>
+            var citrus = fruits.slice(2);<br/>
+            Lemon,Apple,Mango<br/><br/>
+        </code>
+        <h5>Automatic toString()</h5>
+        <p>*JavaScript automatically converts an array to a comma separated string when a primitive value is expected.</p>
+        <p>*This is always the case when you try to output an array.</p>
+        <p>*These two examples will produce the same result:</p>
+        <code>
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];<br/>
+            fruits.toString();<br/>
+            fruits;<br/>
+            Banana,Orange,Apple,Mango<br/><br/>
+        </code>
+        <h5>Array Methods</h5>
+        <code>
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];<br/>
+            fruits.sort();     // Sorts the elements of fruits<br/>
+            fruits.reverse();  // Then reverse the order of the elements<br/><br/>
+        </code>
+        <h5>Number Sort by Compare Function</h5>
+        <p>- the sort() method will produce incorrect result when sorting numbers. You can fix this by providing a compare function.</p>
+        <code>
+            var points = [40, 100, 1, 5, 25, 10]; <br/>
+            points.sort(function(a, b){return a - b});<br/>
+            1,5,10,25,40,100<br/><br/>
+            //Use the same trick to sort an array descending<br/>
+            points.sort(function(a, b){return a - b});<br/>
+            100,40,25,10,5,1<br/><br/>
+        </code>
+        <h5>JavaScript Array Iteration Methods</h5>
+        <p>* Array iteration methods operate on every array item.</p>
+        <p>* Array.forEach() -> The forEach() method calls a function (a callback function) once for each array element.</p>
+        <p>* Note that the function takes 3 arguments</p>
+        <code>
+            var txt = ""; <br/>
+            var numbers = [45, 4, 9, 16, 25];<br/>
+            numbers.forEach(myFunction);<br/>
+            function myFunction(value, index, array) {<br/>
+                txt = txt + value; <br/>
+            }<br/><br/>
+        </code>
+        <ul>
+            <li>The item value</li>
+            <li>The item index</li>
+            <li>The array itself</li>
+        </ul>
+        <h5>Array.map()</h5>
+        <p>* The map() method creates a new array by performing a function on each array element.</p>
+        <p>* The map() method does not execute the function for array elements without values.</p>
+        <p>* The map() method does not change the original array.</p>
+        <p>* This example multiplies each array value by 2:</p>
+        <code>
+            var numbers1 = [45, 4, 9, 16, 25];<br/>
+            var numbers2 = numbers1.map(myFunction);<br/>
+            document.getElementById("demo").innerHTML = numbers2;<br/>
+            function myFunction(value, index, array) {<br/>
+            return value * 2;<br/>
+            }<br/><br/>
+        </code>
+        <p>Array.filter() -> The filter() method creates a new array with array elements that passes a test.</p>
+        <p>Array.reduce() -> The reduce() method runs a function on each array element to produce (reduce it to) a single value. </p>
+        <p>Array.reduceRight() -> The reduceRight() method runs a function on each array element to produce (reduce it to) a single value.</p>
+        <p>Array.every() -> The every() method check if all array values pass a test.</p>
+        <p>Array.some() -> The some() method check if some array values pass a test.</p>
+        <p>Array.some() -> The indexOf() method searches an array for an element value and returns its position. </p>
+        <p>Array.lastIndexOf() - > Array.lastIndexOf() is the same as Array.indexOf(), but returns the position of the last occurrence of the specified element.</p>
+        <p>Array.find() -> The find() method returns the value of the first array element that passes a test function.</p>
+        <p>Array.findIndex() -> The findIndex() method returns the index of the first array element that passes a test function.</p>
+        <h5>Date</h5>
+        <p>* Date objects are static. The computer time is ticking, but date objects are not.</p>
+        <p>* 7 numbers specify year, month, day, hour, minute, second, and millisecond (in that order)</p>
+        <p>6 numbers specify year, month, day, hour, minute, second:</p>
+        <p>5 numbers specify year, month, day, hour, and minute:</p>
+        <p>4 numbers specify year, month, day, and hour:</p>
+        <p>3 numbers specify year, month, and day:</p>
+        <p>2 numbers specify year and month:</p>
+        <p>You cannot omit month. If you supply only one parameter it will be treated as milliseconds.</p>
+        <p>Previous Century -> One and two digit years will be interpreted as 19xx (xx -> 01-99) 1901,1902,1903,etc.,</p>
+        <p>The toDateString() method converts a date to a more readable format.</p>
+        <h5>JavaScript Math Object</h5>
+        <p>The JavaScript Math object allows you to perform mathematical tasks on numbers.</p>
+        <p>* Math.round() -> Math.round(x) returns the value of x rounded to its nearest integer</p>
+        <p>* Math.pow() -> Math.pow(x, y) returns the value of x to the power of y:</p>
+        <p>* Math.sqrt() -> Math.sqrt(x) returns the square root of x:</p>
+        <p>* Math.abs() -> Math.abs(x) returns the absolute (positive) value of x:</p>
+        <p>* Math.ceil() -> Math.ceil(x) returns the value of x rounded up to its nearest integer:</p>
+        <p>* Math.floor() -> Math.floor(x) returns the value of x rounded down to its nearest integer:</p>
+        <p>* Math.sin() -> Math.sin(x) returns the sine (a value between -1 and 1) of the angle x (given in radians).</p>
+        <p>* Math.cos() -> Math.cos(x) returns the cosine (a value between -1 and 1) of the angle x (given in radians).</p>
+        <p>* Math.min() and Math.max() -> Math.min() and Math.max() can be used to find the lowest or highest value in a list of arguments:</p>
+        <p>* Math.random() -> Math.random() returns a random number between 0 (inclusive), and 1 (exclusive):</p>
+        <h5>A Proper Random Function</h5>
+        <p>*As you can see from the examples above, it might be a good idea to create a proper random function to use for all random integer purposes.</p>
+        <p>*This JavaScript function always returns a random number between min (included) and max (excluded):</p>
+        <code>
+            //a random number between min (included) and max (excluded)<br/><br/>
+            var random = getRndInteger(10, 150)<br/>
+            function getRndInteger(min, max) {<br/>
+                return Math.floor(Math.random() * (max - min) ) + min;<br/>
+            }<br/><br/>
+
+            //a random number between min and max (both included)<br/><br/>
+            function getRndInteger(min, max) {<br/>
+                return Math.floor(Math.random() * (max - min + 1) ) + min;<br/>
+            }<br/><br/>
+        </code>
+        <h5>Boolean</h5>
+        <p>* JavaScript has a Boolean data type. It can only take the values true or false.</p>
+        <p></p>
+        <p></p>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

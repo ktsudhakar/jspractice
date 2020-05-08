@@ -9,13 +9,14 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
     <div class="container-fluid">
-        <h1 class="text-center">Javascript</h1>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><img src="images/logo.png" height="30" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -26,18 +27,13 @@
                         <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="alphabetical-javaScript-reference.html">Alphabetical JavaScript
-                            Reference</a>
+                        <a class="nav-link" href="alphabetical-javaScript-reference.html">Alphabetical JavaScript Reference</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="shortcuts.html">Shortcuts</a></li>
                 </ul>
             </div>
         </nav>
+        <h1 class="text-center">Javascript</h1>
         <p>* Numbers are not allowed as the first character.</p>
         <p>* JavaScript variables are containers for storing data values.</p>
         <p>* All JavaScript variables must be identified with unique names. These unique names are called identifiers.
@@ -80,6 +76,11 @@
             typeof function myFunc(){}   // Returns "function" <br/><br/>
         </code>
         <p>* The typeof operator returns "object" for arrays because in JavaScript arrays are objects.</p>
+
+        <p>* <code>Array.isArray(array_name) </code>will check it isArray or not and return true or false</p>
+        <p><span class="alert alert-success" id="isArray"></span></p>
+        <p><span class="alert alert-danger">The problem with this solution is that ECMAScript 5 is not supported in older browsers.</span></p>
+
         <p>* Since local variables are only recognized inside their functions, variables with the same name can be
             used in different functions.</p>
         <p>* Local variables are created when a function starts, and deleted when the function is completed.</p>
@@ -91,9 +92,9 @@
         <p>* Objects can also have methods.</p>
         <p>* Methods are actions that can be performed on objects.</p>
         <p>* Methods are stored in properties as function definitions.</p>
-        <p><img src="images/object-methods.jpg" /></p>
+        <p><img class="img-fluid" src="images/object-methods.jpg" /></p>
         <p>* When using the === operator, equal strings are not equal, because the === operator expects equality in both type and value Or even worse. Objects cannot be compared:</p>
-        <p><img src="images/string-as-objects.jpg" /></p>
+        <p><img class="img-fluid" src="images/string-as-objects.jpg" /></p>
         <h5>String Methods and Properties</h5>
         <p>* Both indexOf(), and lastIndexOf() return -1 if the text is not found.</p>
         <h5>Extracting String Parts</h5>
@@ -114,12 +115,136 @@
             <li>The parseFloat() method</li>
         </ul>
         <p>* These methods are not number methods, but global JavaScript methods.</p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
+        <h5>Array Elements Can Be Objects</h5>
+        <p>* JavaScript variables can be objects. Arrays are special kinds of objects.</p>
+        <p>* Because of this, you can have variables of different types in the same Array.</p>
+        <p>* You can have objects in an Array. You can have functions in an Array. You can have arrays in an Array:</p>
+        <code>
+            myArray[0] = Date.now; <br/>
+            myArray[1] = myFunction; <br/>
+            myArray[2] = myCars; <br/> <br/>
+        </code>
+        <h5>Array Properties and Methods</h5>
+        <p>* The real strength of JavaScript arrays are the built-in array properties and methods:</p>
+        <code>
+            var x = cars.length;   // The length property returns the number of elements <br/>
+            var y = cars.sort();   // The sort() method sorts arrays<br/><br/>
+        </code>
+        <p>* Accesing last element of the array</p>
+        <code>
+            var last = fruits[fruits.length - 1]; <br/><br/>
+        </code>
+        <p>* The best way to loop through an array is using a standard for loop:</p>
+        <p><span class="alert alert-success" id="forloop"></span></p>
+        <h5>Adding Array Elements</h5>
+        <p>* The easiest way to add a new element to an array is using the push() method:</p>
+        <code>
+            var fruits = ["Banana", "Orange", "Apple", "Mango"]; <br/>
+            fruits.push("Lemon");    // adds a new element (Lemon) to fruits<br/><br/>
+        </code>
+        <p>* New element can also be added to an array using the length property:</p>
+        <code>
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];<br/>
+            fruits[fruits.length] = "Lemon";    // adds a new element (Lemon) to fruits<br/><br/>
+        </code>
+        <p>* Adding elements with high indexes can create undefined "holes" in an array:</p>
+        <code>
+            var fruits, text2, fLen, i;<br/>
+            fruits = ["Banana", "Orange", "Apple", "Mango"];<br/>
+            fruits[15] = "Lemon";<br/>
+            
+            fLen = fruits.length;<br/>
+            text2 = "<ul>";<br/>
+                for (i = 0; i < fLen; i++) {<br/>
+                    text2 += "<li>" + fruits[i] + "</li>";<br/>
+                }<br/>
+                text2 += "</ul>";<br/>
+                document.getElementById("demo2").innerHTML = text2;<br/><br/>
+            </code>
+        <p><span class="alert alert-success" id="demo2"></span></p>
+        <h5>Associative Arrays</h5>
+        <p>*Many programming languages support arrays with named indexes.</p>
+        <p>*Arrays with named indexes are called associative arrays (or hashes).</p>
+        <p>*JavaScript does not support arrays with named indexes.</p>
+        <p> *In JavaScript, arrays always use numbered indexes.</p>
+        <p><img class="img-fluid" src="images/difference-between-arrays-and-objects.jpg" /></p>
+        <h5>Converting Arrays to Strings</h5>
+        <p>*The join() method also joins all array elements into a string.</p>
+        <code>
+            fruits.toString()<br/>
+            Banana,Orange,Apple,Mango<br/><br/>
+        </code>
+        <p>*It behaves just like toString(), but in addition you can specify the separator:</p>
+        <code>
+            fruits.join(" * ")<br/>
+            Banana * Orange * Apple * Mango<br/><br/>
+        </code>
+        <h5>Popping and Pushing</h5>
+        <p>* <strong>Popping</strong> items out of an array, or <strong>pushing</strong> items into an array. <br/><br/>
+            The pop() method removes the last element from an array.<br/>
+            The pop() method returns the value that was "popped out".<br/>
+            The push() method adds a new element to an array (at the end).<br/>
+            The push() method returns the new array length:</br></p>
+        <code>
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];<br/>
+            fruits.pop(); // Removes the last element ("Mango") from fruits and returns the value mango<br/><br/>
+        </code>
+        <p><span class="alert alert-success" id="pop1"></span></p>
+        <p><span class="alert alert-success" id="pop2"></span></p>
+        <p><span class="alert alert-success" id="pop3"></span></p>
+        <code>
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];<br/>
+            fruits.push(); // Adds a new element ("Kiwi") to fruits and returns the length of the array<br/><br/>
+        </code>
+        <p><span class="alert alert-success" id="push1"></span></p>
+        <p><span class="alert alert-success" id="push2"></span></p>
+        <p><span class="alert alert-success" id="push3"></span></p>
+        <p>* Shifting is equivalent to popping, working on the first element instead of the last.<br/>
+            The shift() method removes the first array element and "shifts" all other elements to a lower index.<br/>
+            The shift() method returns the string that was "shifted out".</p>
+        <p>* The unshift() method adds a new element to an array (at the beginning), and "unshifts" older elements.<br/>
+            The unshift() method returns the new array length.<br/>
+        </p>
+        <p>* Since JavaScript arrays are objects, elements can be deleted by using the JavaScript operator delete.</p>
+        <p><span class="alert alert-danger">Using delete may leave undefined holes in the array. Use pop() or shift() instead.</span></p>
+        <h5>Splicing an Array</h5>
+        <p>*The first parameter (2) defines the position where new elements should be added (spliced in).</p>
+        <p>*The second parameter (0) defines how many elements should be removed.</p>
+        <p>*The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.</p>
+        <p>*The splice() method returns an array with the deleted items</p>
+        <code>
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            fruits.splice(2, 2, "Lemon", "Kiwi"); <br/>// delete from the position 2 and delete 2 items. And will add the two items lemon and kiwi. Then return new array.<br/><br/>
+        </code>
+        <h5>Splicing an Array</h5>
+        <p>* Splice() is used to add or remove element by giving parameters.</p>
+        <p><span class="alert alert-warning">With clever parameter setting, you can use splice() to remove elements without leaving "holes" in the array</span></p>
+        <code>
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];<br/><br/>
+            fruits.splice(2, 0, "Lemon", "Kiwi");<br/>
+            // first parameter (2) is starting parameter,<br/>
+            //second parameter (0) is to delete the number of records, <br/>
+            //third (Lemon) and 4th (Kiwi) are the parameteres to adding records.<br/><br/>
+            
+            fruits.splice(2, 2, "Lemon", "Kiwi"); <br/>
+            // first parameter (2) is starting parameter,<br/>
+            //second parameter (2) is to delete the number of records.<br/><br/>
+
+            fruits.splice(0, 1);<br/>
+            // first parameter (0) is starting parameter,<br/>
+            //second parameter (1) is to delete the number of records.<br/><br/>
+        </code>
+        <p>* </p>
+        <p>* </p>
+        <p>* </p>
+        <p>* </p>
     </div>
-    <script src="main.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

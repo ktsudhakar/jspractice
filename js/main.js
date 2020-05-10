@@ -213,9 +213,72 @@ if (someday > today) {
 }
 console.log(text);
 
+//
 
-function foo1()
-{
+var text;
+var i = 0;
+while (i < 10) {
+  text += "<br>The number is " + i;
+  i++;
+}
+
+console.log(text);
+
+//
+
+var text = "";
+var i;
+for (i = 0; i < 10; i++) {
+  if (i === 3) { break; }
+  text += "The number is " + i + "<br>";
+}
+
+console.log(text);
+
+//
+
+var text = "";
+var i;
+for (i = 0; i < 10; i++) {
+  if (i === 3) { continue; }
+  text += "The number is " + i + "<br>";
+}
+
+console.log(text);
+
+//
+
+var cars = ["BMW", "Volvo", "Saab", "Ford"];
+var text = "";
+
+list: {
+  text += cars[0] + "<br>"; 
+  text += cars[1] + "<br>"; 
+  text += cars[2] + "<br>"; 
+  text += cars[3] + "<br>"; 
+}
+
+//
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+console.log(isArray(fruits));
+
+function isArray(myArray) {
+  return myArray.constructor.toString().indexOf("Array") > -1;
+}
+
+//
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+console.log(isArray(fruits));
+
+function isArray(myArray) {
+  return myArray.constructor === Array;
+}
+
+//
+
+function foo1(){
   return {
       bar: "hello 1"
   };

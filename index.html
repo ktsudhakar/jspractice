@@ -8,8 +8,7 @@
     <title>Javascript Practise</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/main.css" />
 </head>
 
@@ -43,6 +42,15 @@
         <p><img class="img-fluid" src="images/javaScript-data-types.jpg" /></p>
         <h5>The typeof Operator</h5>
         <p><img class="img-fluid" src="images/typeof-operator.jpg" /></p>
+        <ul>
+            <li>The data type of NaN is number</li>
+            <li>The data type of an array is object</li>
+            <li>The data type of a date is object</li>
+            <li>The data type of null is object</li>
+            <li>The data type of an undefined variable is undefined *</li>
+            <li>The data type of a variable that has not been assigned a value is also undefined *</li>
+        </ul>
+        <p><span class="alert alert-warning">You cannot use typeof to determine if a JavaScript object is an array (or a date).</span></p>
         <h5>String</h5>
         <p>* If you put a number in quotes, the rest of the numbers will be treated as strings, and concatenated.</p>
         <p>* When used on strings, the + operator is called the concatenation operator..</p>
@@ -63,8 +71,8 @@
         <ul>
             <li>string</li>
             <li>number</li>
-            <li> boolean</li>
-            <li> undefined</li>
+            <li>boolean</li>
+            <li>undefined</li>
         </ul>
         <h5>Complex Data</h5>
         <p>* The typeof operator can return one of two complex types:.</p>
@@ -383,15 +391,32 @@
         </code>
         <h5>Boolean</h5>
         <p>* JavaScript has a Boolean data type. It can only take the values true or false.</p>
-        <p></p>
-        <p></p>
+        <h5>JavaScript Labels</h5>
+        <p>* To label JavaScript statements you precede the statements with a label name and a colon:</p>
+        <p>* The break and the continue statements are the only JavaScript statements that can "jump out of" a code block.</p>
+        <p>* The continue statement (with or without a label reference) can only be used to skip one loop iteration.</p>
+        <p>* The break statement, without a label reference, can only be used to jump out of a loop or a switch.</p>
+        <p>* With a label reference, the break statement can be used to jump out of any code block:</p>
+        <code>
+            var cars = ["BMW", "Volvo", "Saab", "Ford"];<br/>
+            list: {<br/>
+                text += cars[0];<br/>
+                text += cars[1];<br/>
+                break list;<br/>
+                text += cars[2];<br/>
+                text += cars[3];<br/>
+            }<br/><br/>
+        </code>
     </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 </body>
-
 </html>

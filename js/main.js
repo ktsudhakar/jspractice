@@ -58,7 +58,7 @@ for (i = 0; i < fLen; i++) {
 }
 text1 += "</ul>";
 
-document.getElementById("forloop").innerHTML = text1;
+console.log(text1);
 
 //
 
@@ -72,16 +72,16 @@ for (i = 0; i < fLen; i++) {
   text2 += "<li>" + fruits2[i] + "</li>";
 }
 text2 += "</ul>";
-document.getElementById("demo2").innerHTML = text2;
+console.log(text2);
 
 //
 
-var fruits3 = ["Banana", "Orange", "Apple", "Mango"];
-document.getElementById("isArray").innerHTML = isArray(fruits3);
+// var fruits3 = ["Banana", "Orange", "Apple", "Mango"];
+// console.log(isArray(fruits));
 
-function isArray(myArray) {
-  return myArray.constructor.toString().indexOf("Array") > -1;
-}
+// function isArray(myArray) {
+//   return myArray.constructor.toString().indexOf("Array") > -1;
+// }
 
 //
 
@@ -260,23 +260,123 @@ list: {
 
 //
 
-var fruits = ["Banana", "Orange", "Apple", "Mango"];
-console.log(isArray(fruits));
+// var fruits = ["Banana", "Orange", "Apple", "Mango"];
+// console.log(isArray(fruits));
 
-function isArray(myArray) {
-  return myArray.constructor.toString().indexOf("Array") > -1;
-}
+// function isArray(myArray) {
+//   return myArray.constructor.toString().indexOf("Array") > -1;
+// }
+
+//
+
+// var fruits1 = ["Banana", "Orange", "Apple", "Mango"];
+// console.log(isArray(fruits1));
+
+// function isArray(myArray) {
+//   return myArray.constructor === Array;
+// }
 
 //
 
-var fruits = ["Banana", "Orange", "Apple", "Mango"];
-console.log(isArray(fruits));
-
-function isArray(myArray) {
-  return myArray.constructor === Array;
-}
+var str = "Is this all there is?";
+var patt1 = /\s/g;
+var result = str.match(patt1);
+console.log(result);
 
 //
+
+var i = 5;
+for (var i = 0; i < 10; i++) {
+  console.log(i);
+}
+console.log(i);
+
+//
+
+let z = 5;
+for (let z = 0; z < 10; z++) {
+  console.log(z);
+}
+console.log(z);
+
+//
+
+class Car {
+  constructor(brand) {
+    this._carname = brand;
+  }
+  get carname() {
+    return this._carname;
+  }
+  set carname(x) {
+    this._carname = x;
+  }
+}
+
+mycar = new Car("Ford");
+mycar.carname = "Volvo";
+console.log(mycar.carname);
+
+//
+
+var txt = "";
+var person = {fname:"John", lname:"Doe", age:25}; 
+var x;
+for (x in person) {
+  txt += person[x] + " ";
+}
+console.log(txt);
+
+//
+
+// Define an object
+var obj = {counter : 0};
+
+// Define Setters and Getters
+Object.defineProperty(obj, "reset", {
+  get : function () {this.counter = 0;}
+});
+Object.defineProperty(obj, "increment", {
+  get : function () {this.counter++;}
+});
+Object.defineProperty(obj, "decrement", {
+  get : function () {this.counter--;}
+});
+Object.defineProperty(obj, "add", {
+  set : function (value) {this.counter += value;}
+});
+Object.defineProperty(obj, "subtract", {
+  set : function (value) {this.counter -= value;}
+});
+
+// Play with counter:
+obj.reset;
+obj.add = 5;
+obj.subtract = 1;
+obj.increment;
+obj.decrement;
+console.log(obj.counter);
+
+//
+
+// Initiate counter
+var counter = 0;
+
+// Function to increment counter
+function add() {
+  var counter = 0; 
+  counter += 1;
+}
+
+// Call add() 3 times
+add();
+add();
+add();
+
+
+// The result is not 3 because you mix up the globaland local counter
+console.log(counter);
+
 
 function foo1(){
   return {

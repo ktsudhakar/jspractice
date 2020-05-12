@@ -87,17 +87,17 @@ console.log(text2);
 
 var fruits4 = ["Banana", "Orange", "Apple", "Mango"];
 
-document.getElementById("pop1").innerHTML = fruits4;
-document.getElementById("pop2").innerHTML = fruits4.pop();
-document.getElementById("pop3").innerHTML = fruits4;
+// document.getElementById("pop1").innerHTML = fruits4;
+// document.getElementById("pop2").innerHTML = fruits4.pop();
+// document.getElementById("pop3").innerHTML = fruits4;
 
-//
+// //
 
-var fruits = ["Banana", "Orange", "Apple", "Mango"];
+// var fruits = ["Banana", "Orange", "Apple", "Mango"];
 
-document.getElementById("push1").innerHTML = fruits;
-document.getElementById("push2").innerHTML = fruits.push("Kiwi");
-document.getElementById("push3").innerHTML = fruits;
+// document.getElementById("push1").innerHTML = fruits;
+// document.getElementById("push2").innerHTML = fruits.push("Kiwi");
+// document.getElementById("push3").innerHTML = fruits;
 
 //
 
@@ -376,6 +376,48 @@ add();
 
 // The result is not 3 because you mix up the globaland local counter
 console.log(counter);
+
+//
+
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction1(this);
+    }
+  };
+  xhttp.open("GET", "cd_catalog.xml", true);
+  xhttp.send();
+}
+
+// function myFunction1(xml) {
+//   var i;
+//   var xmlDoc = xml.responseXML;
+//   var table="<tr><th>Artist</th><th>Title</th></tr>";
+  //var x = xmlDoc.getElementsByTagName("CD");
+  // for (i = 0; i <x.length; i++) { 
+  //   table += "<tr><td>" +
+  //   x[i].getElementsByTagName("PRICE")[0].childNodes[0].nodeValue +
+  //   "</td><td>" +
+  //   x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue +
+  //   "</td></tr>";
+  // }
+  //document.getElementById("xmlprint").innerHTML = table;
+//}
+
+//
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    console.log(myObj.name);
+  }
+};
+xmlhttp.open("GET", "json_demo.txt", true);
+xmlhttp.send();
+
+//
 
 
 function foo1(){

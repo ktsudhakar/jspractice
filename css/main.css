@@ -49,5 +49,6 @@ a.navbar-brand {
 
 .alert {
     display: inline-block;
+    max-width: 750px;
     margin-bottom: 0;
 }
